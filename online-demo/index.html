@@ -1,0 +1,71 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>Enlighten</title>
+    <meta name="description" content="Enlighten">
+    <meta name="author" content="SitePoint">
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="modal.css">
+
+    <script src="../dist/enlighten.min.js"></script>
+    <script src="demo.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="left">
+
+            <div class="pageContent">
+                <h1>A very interesting article</h1>
+                <div id="content">Sex, transgender identity or expression, ethnicity, disability, sexual orientation and age Section 5 In this
+                    Act the following terms have the meaning set out in this Section. 1. Sex: that someone is a woman or
+                    a man. 2. Transgender identity or expression: that someone does not identify herself or himself as a
+                    woman or a man or expresses by their manner of dressing or in some other way that they belong to another
+                    sex. 3. Ethnicity: national or ethnic origin, skin colour or other similar circumstance. 4. Disability:
+                    permanent physical, mental or intellectual limitation of a person’s functional capacity that as a consequence
+                    of injury or illness existed at birth, has arisen since then or can be expected to arise. 5. Sexual orientation:
+                    homosexual, bisexual or heterosexual orientation. 6. Age: length of life to date. 4 (27) A person who
+                    intends to change or has changed the sex they belong to is also covered by sex as a grounds of discrimination.</div>
+                <div id="indexBlock">
+                    <h2>Index</h2>
+                    This is a generated index from the text above. Kind of cool isn't it?
+                    <div class="index"></div>
+                </div>
+                <div id="wordList"></div>
+            </div>
+
+        </div>
+        <div class="right">
+            <div class="controls">
+                <h2>Configuration</h2>
+                <strong>
+                    <input type="checkbox" id="toggleLink" onClick="demo.update()" / checked>Link text</strong>
+                <br>
+                <div id="linkTextOptions">
+                    <input type="checkbox" id="toggleFirst" onClick="demo.update()" />Only first
+                    <br>
+                    <input type="radio" name="method" onClick="demo.update(0)" checked> Default popup
+                    <input type="radio" name="method" onClick="demo.update(1)"> Custom method
+                    <input type="radio" name="method" onClick="demo.update(2)"> Link to word list
+                </div>
+                <hr>
+                <strong>
+                    <input type="checkbox" id="toggleIndex" onClick="demo.update()" />Add index</strong>
+                <br>
+                <hr>
+                <strong>
+                    <input type="checkbox" id="toggleWordList" onClick="demo.update()" />Add word list</strong>
+                <br>
+                <h2>Text to parse</h2>
+                <textarea id="sourceContent" onkeydown="demo.update()" onkeyup="demo.update()"></textarea>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>
+        <%= htmlWebpackPlugin.options.title %>
+    </title>
+    <style>
+        a.enlighten-clickable {
+            color: red;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <h1>Enlighten examples</h1>
+        <p>This page provides examples of how Make Equal Enlighten might be implemented.</p>
+
+
+        <h2>1. Example with popups</h2>
+        <div id="sourcePopup">This is a text <b>sex</b> asexual asexuell about asexuality.  ignore:<a>sex</a>    <b>asexual</b>    sex age sex <en-ignore>This word is ignored: asexual</en-ignore> However, this is pushed: <enlighten data-match="age">years you are</enlighten></div>
+        <hr>
+        <h2>2. Example with links to index and word</h2>
+        <div id="source">This is a text asexual asexuell about asexuality.</div>
+        <h2>Index</h2>
+        <div id="index">Loading...</div>
+        <h2>Word list</h2>
+        <div id="wordlist">Loading...</div>
+
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function(event) {
+            (function() {
+                var en = new Enlighten();
+                en.parseElement("#sourcePopup");
+                en.parseElement("#source", null, "index");
+                en.insertIndex("#source", "#index", false);
+                en.insertWordlist("#source", "#wordlist", false);
+            })();
+        });
+    </script>
+</body>
+
+</html>

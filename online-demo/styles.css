@@ -1,0 +1,99 @@
+/** 
+    Left part based on: https://wdexplorer.com/20-examples-beautiful-css-typography-design/
+*/
+
+body {
+    margin: 0;
+    overflow-x: hidden;
+}
+
+.container {
+    min-height: 200px;
+    display: table;
+    width: 100%;
+    height: 100vh;
+}
+
+.left {
+    background-color: #22272e;
+    min-height: 200px;
+    width: 100%;
+    display: table-cell;
+}
+
+.right {
+    border-left: 10px solid white;
+    background-color: #DDD;
+    width: 50%;
+    min-height: 200px;
+    display: table-cell;
+    padding: 10px;
+}
+
+.controls {
+    width: 400px;
+}
+
+.pageContent {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 100%;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #adb7bd;
+}
+
+.pageContent h1,
+.pageContent h2,
+.pageContent h3 {
+    color: #fff;
+    font-family: 'Lato', sans-serif;
+}
+
+.pageContent h1 {
+    font-size: 54px;
+    font-weight: 300;
+    line-height: 58px;
+    margin: 0 0 58px;
+}
+
+.pageContent a {
+    color: #fe921f;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.pageContent a:hover {
+    color: #ffffff
+}
+
+.pageContent p {
+    color: #adb7bd;
+    font-family: 'Lucida Sans', Arial, sans-serif;
+    font-size: 16px;
+    line-height: 26px;
+    text-indent: 30px;
+    margin: 0;
+}
+
+.table {
+    display: table;
+}
+
+.cell {
+    display: table-cell;
+}
+
+textarea {
+    width: 100%;
+    height: 30em;
+}
+
+#indexBlock {
+    display: none;
+}
+
+#wordList {
+    display: none;
+}

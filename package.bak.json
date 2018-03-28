@@ -1,0 +1,40 @@
+{
+  "name": "make-equal-enlighten",
+  "version": "4.0.0",
+  "description": "Library to use Make Equal Enlighten",
+  "author": "Niklas Berg",
+  "license": "MIT",
+  "homepage": "https://github.com/nkholski/make-equal-enlighten",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=dev webpack-dev-server --progress --mode development --config webpack.config.dev.js",
+    "build": "webpack -p --progress --mode production --config webpack.config.build.js",
+    "test": "karma start --single-run --no-auto-watch karma.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://nkholski@github.com/nkholski/make-equal-enlighten.git"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.6.1",
+    "clean-webpack-plugin": "^0.1.19",
+    "cross-env": "^5.1.4",
+    "css-loader": "^0.28.10",
+    "file-loader": "^1.1.11",
+    "html-webpack-plugin": "^3.0.6",
+    "jasmine-core": "^3.1.0",
+    "karma": "^2.0.0",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-jasmine": "^1.1.1",
+    "node-sass": "^4.7.2",
+    "sass-loader": "^6.0.7",
+    "style-loader": "^0.20.3",
+    "url-loader": "^1.0.1",
+    "webpack": "^4.1.1",
+    "webpack-cli": "^2.0.12",
+    "webpack-dev-server": "^3.1.1",
+    "webpack-merge": "^4.1.2",
+    "karma-webpack": "^2.0.13"
+  }
+}
