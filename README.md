@@ -8,6 +8,8 @@ The libary was built to power Make Equal Enlighten, a curated database of diffic
 
 Enlighten is highly customizable, has zero dependencies and is ES5 compilant. It's written in ES6 and built with webpack and is quality ensured through TDD. Contributions in the form of issue reports, PRs or suggestions are highly appreciated.
 
+## Demo
+Try online demo here: http://niklasberg.se/enlighten
 ## Features
 
 - Parse text and make difficult words clickable for explaination.
