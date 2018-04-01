@@ -272,7 +272,8 @@ Enlighten = class {
 
     /**
      * Get a list of word ids from a text (html-tags allowed)
-     *
+     * @private
+     * 
      * @param {string} text - Text to build array from
      *
      * @return {number[]} - Array of word ids
@@ -311,6 +312,7 @@ Enlighten = class {
 
     /**
      * Generate a index
+     * @private
      *
      * @param {string} text - Text to build from
      * @param {bool} linked - Should it add a anchor to the word?
@@ -340,6 +342,7 @@ Enlighten = class {
 
     /**
      * Generate a word list
+     * @private
      *
      * @param {string} text - Text to build from
      * @param {bool} linked - Let the index find the words?
@@ -367,6 +370,13 @@ Enlighten = class {
      `;
     }
 
+    /**
+     * Execute current configured popup (or other custom method)
+     * @private
+     */
+
+
+
     _popupPassthrough(id, method) {
         let word = this.getWord(id);
         if (method === "_defaultPopup") {
@@ -379,7 +389,8 @@ Enlighten = class {
 
     /**
      * Default popup fuction
-     *
+     * @private
+     * 
      * @param {number} id - Id of the word
      * @param {string} word - The word to show
      * @param {string} explaination - The explaination
@@ -395,6 +406,7 @@ Enlighten = class {
 
     /** 
      * Get an element based by id or class name (instead of using jQuery ;-D)
+     * @private
      */
     _getElement(element) {
         if (element.indexOf("#") > -1) {
@@ -406,6 +418,7 @@ Enlighten = class {
 
     /** 
      * Update list of matches
+     * @private
      */
     _updateMatches() {
         let matches = [];
@@ -426,6 +439,7 @@ Enlighten = class {
 
     /**
      * Alphabethic list of matches for indices and word lists
+     * @private
      */
     _alphabetizeIds(ids) {
         return ids.sort((a, b) => {
@@ -435,6 +449,7 @@ Enlighten = class {
 
     /** 
      * Get words from database (or cached in localStorage)
+     * @private
      */
     _getWords() {
         // Try to get it from localStorage
@@ -457,6 +472,7 @@ Enlighten = class {
 
     /** 
      * Check if Enlighten is ready to parse text (got words to use).
+     * @private
      */
     _isReady(...args) {
         if (this.words.length > 0 && (this.useLocalStorage || this.updated)) {
@@ -467,6 +483,7 @@ Enlighten = class {
 
     /** 
      * Add to cue of tasks to execute when Enlighten is ready.
+     * @private
      */
     _addToQue(...args) {
         let method = args[0].shift();
@@ -478,6 +495,7 @@ Enlighten = class {
 
     /** 
      * Execute waiting tasks.
+     * @private
      */
     _executeQue() {
         this.quedTasks.forEach(
@@ -490,6 +508,7 @@ Enlighten = class {
 
     /** 
      * Fetch words from API or static JSON-file
+     * @private
      */
     _ajaxGet() {
         return new Promise((resolve, reject) => {
@@ -514,6 +533,7 @@ Enlighten = class {
 
     /** 
      * Make default modal popup
+     * @private
      */
     _addModalHTML() {
         let modalEl = document.createElement("div");
