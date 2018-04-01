@@ -1,5 +1,33 @@
-/**
- * @author       Niklas Berg <niklas@makeequal.se>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: index.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: index.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * @author       Niklas Berg &lt;niklas@makeequal.se>
  * @copyright    2018 Niklas Berg
  * @license      {@link https://github.com/nkholski/enlighten/blob/license.txt|MIT License}
  *
@@ -93,7 +121,7 @@ Enlighten = class {
      * @return {{id: number, word: string, text: string}}
      */
     getWord(id) {
-        if (id < 0) {
+        if (id &lt; 0) {
             return this.extraWords.find((el) => {
                 return el.id === id;
             });
@@ -195,8 +223,8 @@ Enlighten = class {
                 let cleanStart = match.match.substring(0, 1) !== "*";
                 let cleanEnd = match.match.substring(match.match.length-1) !== "*";
                 let compare = match.match.replace(/\*/g, "");
-                let pattern = "<a.*?>.*?<\/a>" + // Not within achors
-                    "|<en-ignore\\b[^>]*>.*?<\/en-ignore>" + // Not within ignore
+                let pattern = "&lt;a.*?>.*?&lt;\/a>" + // Not within achors
+                    "|&lt;en-ignore\\b[^>]*>.*?&lt;\/en-ignore>" + // Not within ignore
                     "|" + compare + "*.?\>" + // Not inside tags
                     "|([a-zåäö]*" + compare + "[a-zA-ZåäöÅÄÖ]*)"; // But match this
 
@@ -205,7 +233,7 @@ Enlighten = class {
 
                 if (rx.test(text)) {
                     text = text.replace(rx, function (matchedWord, p1) {
-                        if(!multiple && found.indexOf(match.word.id) !== -1) {
+                        if(!multiple &amp;&amp; found.indexOf(match.word.id) !== -1) {
                             return matchedWord;
                         }
                         // Only match words which begins with match
@@ -215,23 +243,23 @@ Enlighten = class {
                             }
                         }
                         // Only match words which ends with match
-                        if (pos + matchedWord.length < text.length && (/[a-z]/).test(text.substr(pos + matchedWord.length, 1))) {
+                        if (pos + matchedWord.length &lt; text.length &amp;&amp; (/[a-z]/).test(text.substr(pos + matchedWord.length, 1))) {
                             return matchedWord;
                         }*/
                         // Only find words starting with the matcher
-                        if (cleanStart && matchedWord.toLowerCase().indexOf(compare) !== 0) {
+                        if (cleanStart &amp;&amp; matchedWord.toLowerCase().indexOf(compare) !== 0) {
                             return matchedWord;
                         }
                         // Only find words ending with the matcher
-                        if (cleanEnd && matchedWord.toLowerCase().indexOf(compare) !== matchedWord.length - compare.length) {
+                        if (cleanEnd &amp;&amp; matchedWord.toLowerCase().indexOf(compare) !== matchedWord.length - compare.length) {
                             return matchedWord;
                         }
                         found.push(match.word.id);
 
                         if (method === "index") {
-                            return p1 ? "<a href='#ENLIGHT_WORD" + match.word.id + "' class='enlighten-clickable'>" + p1 + "</a>" : matchedWord;
+                            return p1 ? "&lt;a href='#ENLIGHT_WORD" + match.word.id + "' class='enlighten-clickable'>" + p1 + "&lt;/a>" : matchedWord;
                         } else {
-                            return p1 ? "<a onClick='enlightenPopup(" + match.word.id + ",\"" + method + "\")' class='enlighten-clickable'>" + p1 + "</a>" : matchedWord;
+                            return p1 ? "&lt;a onClick='enlightenPopup(" + match.word.id + ",\"" + method + "\")' class='enlighten-clickable'>" + p1 + "&lt;/a>" : matchedWord;
                         }
                     });
                 }
@@ -241,7 +269,7 @@ Enlighten = class {
 
             }
         );
-        text = text.replace(/<enlighten\ data-word\=[\'\"](.*?)[\'\"]\>(.*?)<\/enlighten>/gi, (fullMatch, keyWord, show) => {
+        text = text.replace(/&lt;enlighten\ data-word\=[\'\"](.*?)[\'\"]\>(.*?)&lt;\/enlighten>/gi, (fullMatch, keyWord, show) => {
             let found = false;
             let wordObject;
             // DRY - FAIL
@@ -260,9 +288,9 @@ Enlighten = class {
                 return fullMatch;
             }
             if (method === "index") {
-                return keyWord ? "<a href='#ENLIGHT_WORD" + wordObject.word.id + "' class='enlighten-clickable'>" + show + "</a>" : fullMatch;
+                return keyWord ? "&lt;a href='#ENLIGHT_WORD" + wordObject.word.id + "' class='enlighten-clickable'>" + show + "&lt;/a>" : fullMatch;
             } else {
-                return keyWord ? "<a onClick='enlightenPopup(" + wordObject.word.id + ",\"" + method + "\")' class='enlighten-clickable'>" + show + "</a>" : fullMatch;
+                return keyWord ? "&lt;a onClick='enlightenPopup(" + wordObject.word.id + ",\"" + method + "\")' class='enlighten-clickable'>" + show + "&lt;/a>" : fullMatch;
             }
 
         });
@@ -281,9 +309,9 @@ Enlighten = class {
     _getIdsFromText(text = "") {
         let ids = [];
         let rx;
-        text = text.replace(/<en\-ignore\>.*?<\/en-ignore>/gi, "");
-        text = text.replace(/<enlighten (.*?)>.*?<\/enlighten>/gi, "$1");
-        text = text.replace(/<.*?>/gi, "");
+        text = text.replace(/&lt;en\-ignore\>.*?&lt;\/en-ignore>/gi, "");
+        text = text.replace(/&lt;enlighten (.*?)>.*?&lt;\/enlighten>/gi, "$1");
+        text = text.replace(/&lt;.*?>/gi, "");
 
         this.matches.forEach((match) => {
             if (ids.indexOf(match.word.id) !== -1 || this.exclude.indexOf(match.word.id) !== -1) {
@@ -323,18 +351,18 @@ Enlighten = class {
         ids.forEach(
             (id) => {
                 if (linked) {
-                    bullets += `<li><a href="#ENLIGHT_WORD${id}">${this.getWord(id).title}</a></li>\n`;
+                    bullets += `&lt;li>&lt;a href="#ENLIGHT_WORD${id}">${this.getWord(id).title}&lt;/a>&lt;/li>\n`;
                 } else {
-                    bullets += `<li>${this.getWord(id).title}</li>\n`;
+                    bullets += `&lt;li>${this.getWord(id).title}&lt;/li>\n`;
                 }
             }
         );
         return `
-      <div class="enlighten-index">
-        <ol>
+      &lt;div class="enlighten-index">
+        &lt;ol>
           ${bullets}
-        </ol>
-      </div>
+        &lt;/ol>
+      &lt;/div>
     `;
     }
 
@@ -352,18 +380,18 @@ Enlighten = class {
         ids.forEach(
             (id) => {
                 let word = this.getWord(id);
-                html += '<div class="enlighten-word">';
+                html += '&lt;div class="enlighten-word">';
                 if (linked) {
-                    html += `<a name="ENLIGHT_WORD${id}"></a>`;
+                    html += `&lt;a name="ENLIGHT_WORD${id}">&lt;/a>`;
                 }
-                html += `<h3>${word.title}</h3>
-             <span>${word.text}</span>
-           </div>`;
+                html += `&lt;h3>${word.title}&lt;/h3>
+             &lt;span>${word.text}&lt;/span>
+           &lt;/div>`;
             }
         );
-        return `<div class="enlighten-word-explainations">
+        return `&lt;div class="enlighten-word-explainations">
            ${html}
-       </div>
+       &lt;/div>
      `;
     }
 
@@ -439,7 +467,7 @@ Enlighten = class {
     _getWords() {
         // Try to get it from localStorage
         let words = localStorage.getItem("enlighten_words_" + this.language);
-        if (words && words.length > 0) {
+        if (words &amp;&amp; words.length > 0) {
             this.words = JSON.parse(words);
             this._updateMatches();
         }
@@ -459,7 +487,7 @@ Enlighten = class {
      * Check if Enlighten is ready to parse text (got words to use).
      */
     _isReady(...args) {
-        if (this.words.length > 0 && (this.useLocalStorage || this.updated)) {
+        if (this.words.length > 0 &amp;&amp; (this.useLocalStorage || this.updated)) {
             return true;
         }
         this._addToQue(args);
@@ -520,17 +548,17 @@ Enlighten = class {
         modalEl.setAttribute("id", "enlightenModal");
         modalEl.setAttribute("class", "modal");
         modalEl.innerHTML = `
-          <div class="modal-content">
-            <span class="close">&times;</span>
-            <h3>Title</h3>
-            <p>Content</p>
-          </div>f`;
+          &lt;div class="modal-content">
+            &lt;span class="close">&amp;times;&lt;/span>
+            &lt;h3>Title&lt;/h3>
+            &lt;p>Content&lt;/p>
+          &lt;/div>f`;
 
         let bodyEl = document.getElementsByTagName('body')[0];
         bodyEl.appendChild(modalEl);
         let span = document.getElementsByClassName("close")[0];
 
-        // When the user clicks on <span> (x), close the modal
+        // When the user clicks on &lt;span> (x), close the modal
         span.onclick = function () {
             modalEl.style.display = "none";
         };
@@ -545,4 +573,26 @@ Enlighten = class {
     }
 };
 
-global.Enlighten = Enlighten;
+global.Enlighten = Enlighten;</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Enlighten.html">Enlighten</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Sun Apr 01 2018 18:01:11 GMT+0200 (CEST)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
